@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        function ComputerChoice(){
+             
+            const optionsa = ["rock", "paper", "scissors"];
+
+            const randomElement = optionsa[Math.floor(Math.random() * optionsa.length)];
+
+            return randomElement;
+
+        }
+
+
+
+        function playRound(){
+
+            let computerchoice = ComputerChoice();
+
+            let playerchoice = (prompt("Your Choice:")).toLowerCase();
+
+            let choices = `Player: ${playerchoice}  Computer: ${computerchoice}`;
+
+            console.log(choices);
+
+            if(playerchoice == computerchoice){
+                return "Tie"
+            };
+
+            switch(playerchoice + computerchoice){
+                case "rockpaper":
+                    return "paper beats rock, you lose";
+                case "rockscissors":
+                    return "rock beats scissors, you win";
+                case "paperrock":
+                    return "paper beats rock, you win";
+                case "paperscissors":
+                    return "scissors beats paper, you lose";
+                case "scissorsrock":
+                    return "rock beats scissors, you lose";
+                case "scissorspaper":
+                    return "scissors beats paper, you win";
+                default:
+                    return "ERROR!";
+            };
+
+
+
+        }
+
+        function playGame(){
+
+            let playerscore = 0;
+            let compscore = 0;
+
+            for(let i = 0; i < 5; i++){
+                console.log("Round:" + (i + 1));
+                let result = playRound();
+                console.log(result);
+
+                if(result.includes("win")){
+                    playerscore++;
+                    console.log(`Player score: ${playerscore}   Comp score: ${compscore}`)
+                }else if(result.includes("lose")){
+                    compscore++;
+                    console.log(`Player score: ${playerscore}   Comp score: ${compscore}`)
+                }else{
+                    console.log(`Player score: ${playerscore}   Comp score: ${compscore}`)
+                }
+            }
+
+            if(playerscore > compscore){
+                console.log("Yay you won!!")
+            }else if(playerscore < compscore){
+                console.log("You loooooooose!!!")
+            }else{
+                console.log("the match is a tie!")
+            }
+
+        }
+
+        playGame();
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
