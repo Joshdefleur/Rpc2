@@ -24,20 +24,32 @@
         }
 
         let rbut = document.getElementById("rbut");
+        rbut.addEventListener("click", (event) => {
+            return("rock")
+        });
 
 
         let pbut = document.getElementById("pbut");
+        pbut.addEventListener("click", (event) => {
+            return("paper")
+        });
 
         
         let sbut = document.getElementById("sbut");
+        sbut.addEventListener("click", (event) => {
+            return("scissors")
+
+        });
 
 
 
-        function playRound(){
+        function playRound(playerchoice){
 
             let computerchoice = ComputerChoice();
 
-            let playerchoice = (prompt("Your Choice:")).toLowerCase();
+
+
+            //let playerchoice = (prompt("Your Choice:")).toLowerCase();
 
             let choices = `Player: ${playerchoice}  Computer: ${computerchoice}`;
 
